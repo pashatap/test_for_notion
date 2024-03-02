@@ -1,0 +1,9 @@
+{% extends 'system_for_study/base.html' %}
+{% block content %}
+    {% for lesson in lessons %}
+        <pre>Title:{{ lesson.title }}</pre>
+        <pre>Video link :{{ lesson.video_link }}</pre>
+
+    {% endfor %}
+{% endblock %}
+

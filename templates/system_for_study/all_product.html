@@ -1,0 +1,13 @@
+{% extends "system_for_study/base.html" %}
+{% block content %}
+    {% for product in all_products %}
+        <form action="{% url 'system:create_order' product.pk %}" method="post">
+        {% csrf_token %}
+        <div><a href="{% url 'system:product_detail' product.pk %}">Name:{{ product.name }}</a></div>
+        <pre>Cost:{{ product.cost }}</pre>
+        <pre>Start:{{ product.start_date_time }}</pre>
+        <button type="submit">Записаться</button>
+    {% endfor %}
+</form>
+    <a href="{% url 'system:products' %}">Back</a>
+{% endblock %}

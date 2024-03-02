@@ -1,0 +1,11 @@
+{% extends 'system_for_study/base.html' %}
+{% block content %}
+    <p>User:{{ user }}</p>
+    <a href="{% url 'system:all_product' %}">Все Продукты </a>
+    <h1>Доступные Продукты</h1>
+    {% for product in products %}
+        <a href="{% url 'system:product_detail' product.pk %}">    {{ product.name }}</a>
+        <p>{{ product.start_date_time }}</p>
+    {% endfor %}
+
+{% endblock %}
